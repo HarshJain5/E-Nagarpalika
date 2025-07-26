@@ -9,7 +9,7 @@ const userRouter=require('./routers/userrouter')
 
 app.use('/user',userRouter)
 
-app.use(cors({origin: 'http://localhost:3000'}));
+app.use(cors({origin: 'https://e-nagarpalika-frontend.onrender.com'}));
 
 
 
