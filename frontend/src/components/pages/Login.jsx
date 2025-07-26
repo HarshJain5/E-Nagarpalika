@@ -12,7 +12,7 @@ function Login() {
     function handleSubmit(e) {
         e.preventDefault()
          const fdata={email,password}
-        fetch('/user/login',{
+        fetch('https://e-nagarpalika-backend.onrender.com/user/login',{
             method:"POST",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify(fdata)
