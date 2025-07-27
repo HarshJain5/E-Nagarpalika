@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom'
 
 function Step1form() {
     const navigate=useNavigate()
+    const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'; // Fallback for local development
+
     // Renamed to 'date' for consistency (lowercase convention)
     const [date, setDate] = useState(() => {
   const today = new Date();
