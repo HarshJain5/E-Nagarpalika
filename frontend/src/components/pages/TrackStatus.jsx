@@ -91,7 +91,7 @@ function TrackStatus() {
         setShowModal(false); // Hide modal before new attempt
 
         try {
-            const res = await fetch(`/user/track/${ticketNo}`);
+            const res = await fetch(`${API_BASE_URL}/user/track/${ticketNo}`);
             console.log(res);
             if (res.ok) {
                 const data = await res.json();
