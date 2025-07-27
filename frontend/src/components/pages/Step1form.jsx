@@ -36,7 +36,7 @@ function Step1form() {
 
     const fdata = { date, natureOfRequests };
 
-    fetch('/user/form', {
+    fetch(`${API_BASE_URL}/user/form`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(fdata)
