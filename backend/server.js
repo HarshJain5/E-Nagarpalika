@@ -7,8 +7,6 @@ require('./dbconfiguration/dbconfiguration')
 const userRouter=require('./routers/userrouter')
 
 
-app.use('/user',userRouter)
-
 const corsOptions = {
   origin: [
     'http://localhost:3000', // स्थानीय विकास के लिए
@@ -21,5 +19,6 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
+app.use('/user',userRouter)
 
 app.listen(process.env.PORT,()=>{console.log(`server is running on Port ${process.env.PORT}`)})
