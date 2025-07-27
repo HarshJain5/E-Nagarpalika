@@ -53,7 +53,7 @@ function Step2form() {
     ...formData,
   };
 
-  fetch("/user/step2", {
+  fetch(`${API_BASE_URL}/user/step2`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
