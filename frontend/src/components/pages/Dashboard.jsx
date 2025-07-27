@@ -227,6 +227,7 @@ function Dashboard() {
   const [officerLevel, setOfficerLevel] = useState(null);
   const [statusFilter, setStatusFilter] = useState("");
 const [dateSort, setDateSort] = useState("desc");
+  const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'; // Fallback for local development
 
 
   useEffect(() => {
@@ -236,7 +237,7 @@ const [dateSort, setDateSort] = useState("desc");
 
   const fetchForms = async () => {
     try {
-      const res = await fetch(`/user/dashforms?role=${role}&status=${statusFilter}&sort=${dateSort}`);
+      const res = await fetch(`${API_BASE_URL}/user/dashforms?role=${role}&status=${statusFilter}&sort=${dateSort}`);
       const data = await res.json();
       setForms(data.forms); // Use .forms here, assuming backend sends { forms: [...] }
     } catch (err) {
@@ -257,7 +258,7 @@ const [dateSort, setDateSort] = useState("desc");
   };
 
   const handleApprove = async (id, levelToApprove) => {
-    await fetch(`/user/approve/${id}`, {
+    await fetch(`${API_BASE_URL}/user/approve/${id}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ level: levelToApprove, approvedBy: officerLevel }),
@@ -267,7 +268,7 @@ const [dateSort, setDateSort] = useState("desc");
   };
 
   const handleReject = async (id, levelToReject) => {
-    await fetch(`/user/reject/${id}`, {
+    await fetch(`${API_BASE_URL}/user/reject/${id}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ reason: rejectReason, level: levelToReject, rejectedBy: officerLevel }),
