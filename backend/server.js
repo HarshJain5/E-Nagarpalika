@@ -9,7 +9,15 @@ const userRouter=require('./routers/userrouter')
 
 app.use('/user',userRouter)
 
-app.use(cors({origin: 'https://e-nagarpalika-frontend.onrender.com'}));
+const corsOptions = {
+  origin: [
+    'http://localhost:3000', // स्थानीय विकास के लिए
+    'https://e-nagarpalika-frontend.onrender.com' // आपके डिप्लॉयड फ्रंटएंड का URL
+  ],
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true, // यदि आप कुकीज़ या ऑथराइजेशन हेडर भेज रहे हैं
+  optionsSuccessStatus: 204
+};
 
 
 
