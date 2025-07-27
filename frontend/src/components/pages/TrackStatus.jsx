@@ -5,6 +5,7 @@
 //   const [formData, setFormData] = useState(null);
 //   const [error, setError] = useState("");
 
+
 //   const handleTrack = async (e) => {
 //     e.preventDefault();
 //     setError(""); // reset error
@@ -80,6 +81,8 @@ function TrackStatus() {
     const [formData, setFormData] = useState(null);
     const [error, setError] = useState("");
     const [showModal, setShowModal] = useState(false); // New state for modal visibility
+    const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'; // Fallback for local development
+
 
     const handleTrack = async (e) => {
         e.preventDefault();
