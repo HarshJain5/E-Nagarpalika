@@ -5,6 +5,8 @@ function Step2form() {
   const { state } = useLocation();
   const { date, natureOfRequests } = state || {};
   const navigate=useNavigate()
+  const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'; // Fallback for local development
+
 
   const [formData, setFormData] = useState({
     sourceSystem: [],
