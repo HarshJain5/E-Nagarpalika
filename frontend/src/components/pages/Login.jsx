@@ -8,11 +8,12 @@ function Login() {
     const [ password, setPassword ] = useState('')
     const {loginName,setLoginName,setRole}=useContext(Contextapi)
     const navigate=useNavigate()
+    const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'; // Fallback for local development
 
     function handleSubmit(e) {
         e.preventDefault()
          const fdata={email,password}
-        fetch('https://e-nagarpalika-backend.onrender.com/user/login',{
+        fetch(`${API_BASE_URL}/user/login`,{
             method:"POST",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify(fdata)
