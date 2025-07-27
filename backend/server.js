@@ -19,6 +19,7 @@ const corsOptions = {
   optionsSuccessStatus: 204
 };
 
+app.use(cors(corsOptions));
 
 
 app.listen(process.env.PORT,()=>{console.log(`server is running on Port ${process.env.PORT}`)})
