@@ -7,17 +7,12 @@ require('./dbconfiguration/dbconfiguration')
 const userRouter=require('./routers/userrouter')
 
 
-const corsOptions = {
-  origin: [
-    'http://localhost:3000', // स्थानीय विकास के लिए
-    'https://e-nagarpalika.vercel.app/' // आपके डिप्लॉयड फ्रंटएंड का URL
-  ],
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true, // यदि आप कुकीज़ या ऑथराइजेशन हेडर भेज रहे हैं
-  optionsSuccessStatus: 204
-};
-
-app.use(cors(corsOptions));
+app.use(cors({
+    origin: "https://e-nagarpalika.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"]
+}));
 
 app.use('/user',userRouter)
 
